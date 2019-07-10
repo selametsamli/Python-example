@@ -1,36 +1,36 @@
 def get_source_base():
     while (True):
         try:
-            sourceBase = int(input("Lütfen çevireceğiniz sayının tabanını giriniz: "))
+            sourceBase = int(input("Please enter the base of the number you will convert: "))
         except ValueError:
-            print("Geçerli bir tamsayı girmediniz. Lütfen yeniden deneyin.")
+            print("You have not entered a valid integer. Please try again.")
             continue
         if (sourceBase == 2 or sourceBase == 8 or sourceBase == 10):
             return str(sourceBase)
         else:
-            print("Geçerli taban girmediniz. Geçerli tabanlar 2, 8 ve 10`dur. Lütfen yeniden deneyin.")
+            print("You have not entered a valid base. Valid bases are 2, 8 and 10. Please try again.")
 
 
 def get_target_base():
     while (True):
         try:
-            targetBase = int(input("Lütfen sayının dönüştürüleceği hedef tabanı giriniz: "))
+            targetBase = int(input("Please enter the target base where the number will be converted: "))
         except ValueError:
-            print("Geçerli bir tamsayı girmediniz. Lütfen yeniden deneyin.")
+            print("You have not entered a valid integer. Please try again.")
             continue
         if (targetBase == 2 or targetBase == 8 or targetBase == 10):
             return str(targetBase)
         else:
-            print("Geçerli taban girmediniz. Geçerli tabanlar 2, 8 ve 10`dur. Lütfen yeniden deneyin.")
+            print("You have not entered a valid base. Valid bases are 2, 8 and 10. Please try again.")
 
 
 def get_number(sourceBase):
     a = True
     while (a):
         try:
-            number = int(input("Lütfen çevrilecek sayıyı giriniz: "))
+            number = int(input("Please enter the number to be translated: "))
         except ValueError:
-            print("Geçerli bir tamsayı girmediniz. Lütfen yeniden deneyin.")
+            print("You have not entered a valid integer. Please try again.")
             continue
 
         number = str(number)
@@ -43,8 +43,8 @@ def get_number(sourceBase):
                     return number
 
                 else:
-                    print(sourceBase, "tabanında geçerli bir sayı girmediniz(", i, ">=", sourceBase,
-                          "). Lütfen Yeniden deneyin")
+                    print(sourceBase, "You have not entered a valid number in Base(", i, ">=", sourceBase,
+                          ").Please try again")
                     break
 
         elif (sourceBase == "2") or (sourceBase == "8"):
@@ -53,8 +53,8 @@ def get_number(sourceBase):
             for i in listNumber:
                 if (i >= sourceBase):
                     s = "sikinti"
-                    print(sourceBase, "tabanında geçerli bir sayı girmediniz(", i, ">=", sourceBase,
-                          "). Lütfen Yeniden deneyin")
+                    print(sourceBase, "You have not entered a valid number in Base(", i, ">=", sourceBase,
+                          "). Please try again")
                     break
 
             if (s != "sikinti"):
@@ -80,13 +80,13 @@ def convert_base_to_10(number, base):
         intBase = int(base)
         intNumber = str(number)
         liste = list(intNumber)
-        toplam = 0
-        boyut = len(liste)
+        total = 0
+        size = len(liste)
         for i in liste:
             i = int(i)
-            toplam += i * (intBase ** (boyut - 1))
-            boyut -= 1
-        return toplam
+            total += i * (intBase ** (size - 1))
+            size -= 1
+        return total
 
 
 def convert_10_to_base(number, targetBase):
